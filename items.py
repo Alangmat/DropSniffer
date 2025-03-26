@@ -347,6 +347,8 @@ spring_consumables_32 = {
 
 spring_costumes = {
     '\\x9bI': "[Страж Древа жизни]",
+    '\\xa5I': "[Полуночный Филин]",
+    '\\xfeQ': "[Деревянный клоун]",
 }
 
 spring_pets = {
@@ -532,5 +534,10 @@ spring_accessories_32 = {
     'K\\xab': "[Дивный обод Несокрушимости]",
 }
 
+books = {
+    '\\xaca': '[Учебник "Магическая закалка"]',
+    '\\xaba': '[Учебник "Физическая закалка"]',
+}
 spring_data = {**spring_accessories_32, **spring_accessories_34, **spring_consumables_32, **spring_weapons_34_unique, **spring_weapons_34_rare,
-               **spring_weapons_32_unique, **spring_weapons_32_rare, **spring_costumes, **bars, **crafting_resourses, **great_relics, **amplification}
+               **spring_weapons_32_unique, **spring_weapons_32_rare, **spring_costumes, **bars, **crafting_resourses, **great_relics, **amplification,
+               **books}

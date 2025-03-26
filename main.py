@@ -63,8 +63,8 @@ status_label.pack(pady=10)
 btn_print_drop_all = Button(frame, text="График по дропу", command=printPlotDrop)
 btn_print_drop_all.pack(pady=5)
 
-# btn_print_drop_all = Button(frame, text="График по категориям", command=printPlotDropCat)
-# btn_print_drop_all.pack()
+btn_print_drop_all = Button(frame, text="График по категориям", command=printPlotDropCat)
+btn_print_drop_all.pack()
 
 root.after(1000, update_status)  # Запускаем проверку статуса через 1 секунду
 root.mainloop()

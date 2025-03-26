@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 def printDrop(flag):
     # Путь к JSON файлу
     json_file_path = 'spring_drops_count.json'
+    # json_file_path = 'merman_drops_count.json'
 
     # Загрузка словаря из JSON файла или создание нового, если файл отсутствует
     if os.path.exists(json_file_path):
@@ -26,45 +27,48 @@ def printDrop(flag):
     if cat_flag:
         # print(sorted_dict)
         drops = {
-            "bars": 0,
-            "predel_consumables_32": 0,
-            "crafting_resourses" : 0,
-            "amplification": 0,
-            "predel_weapons_32" : 0,
-            "predel_weapons_34": 0,
-            "predel_armor_32": 0,
-            "predel_armor_34": 0,
-            "predel_accessories_32": 0,
-            "predel_accessories_34": 0,
-            "great_relics": 0,
-            "other": 0,
+            "Слитки": 0,
+            "Крафтовые ресурсы": 0,
+            "Сферы усиления" : 0,
+            "Реликвии": 0,
+            "Бижутерия 32лвл" : 0,
+            "Бижутерия 34лвл": 0,
+            "Расходники": 0,
+            "Костюмы": 0,
+            "Синие пухи 32лвл": 0,
+            "Синие пухи 34лвл": 0,
+            "Фиолетовые пухи 32лвл": 0,
+            "Фиолетовые пухи 34лвл": 0,
+            "Баги": 0,
         }
 
         for key in sorted_dict.keys():
             if key in items.bars.keys():
-                drops["bars"] += sorted_dict[key]
-            elif key in items.predel_consumables_32.keys():
-                drops["predel_consumables_32"] += sorted_dict[key]
+                drops["Слитки"] += sorted_dict[key]
             elif key in items.crafting_resourses.keys():
-                drops["crafting_resourses"] += sorted_dict[key]
+                drops["Крафтовые ресурсы"] += sorted_dict[key]
             elif key in items.amplification.keys():
-                drops["amplification"] += sorted_dict[key]
-            elif key in items.predel_weapons_32.keys():
-                drops["predel_weapons_32"] += sorted_dict[key]
-            elif key in items.predel_weapons_34.keys():
-                drops["predel_weapons_34"] += sorted_dict[key]
-            elif key in items.predel_armor_32.keys():
-                drops["predel_armor_32"] += sorted_dict[key]
-            elif key in items.predel_armor_34.keys():
-                drops["predel_armor_34"] += sorted_dict[key]
-            elif key in items.predel_accessories_32.keys():
-                drops["predel_accessories_32"] += sorted_dict[key]
-            elif key in items.predel_accessories_34.keys():
-                drops["predel_accessories_34"] += sorted_dict[key]
+                drops["Сферы усиления"] += sorted_dict[key]
             elif key in items.great_relics.keys():
-                drops["great_relics"] += sorted_dict[key]
+                drops["Реликвии"] += sorted_dict[key]
+            elif key in items.spring_accessories_32.keys():
+                drops["Бижутерия 32лвл"] += sorted_dict[key]
+            elif key in items.spring_accessories_34.keys():
+                drops["Бижутерия 34лвл"] += sorted_dict[key]
+            elif key in items.spring_consumables_32.keys():
+                drops["Расходники"] += sorted_dict[key]
+            elif key in items.spring_costumes.keys():
+                drops["Костюмы"] += sorted_dict[key]
+            elif key in items.spring_weapons_32_rare.keys():
+                drops["Синие пухи 32лвл"] += sorted_dict[key]
+            elif key in items.spring_weapons_34_rare.keys():
+                drops["Синие пухи 34лвл"] += sorted_dict[key]
+            elif key in items.spring_weapons_32_unique.keys():
+                drops["Фиолетовые пухи 32лвл"] += sorted_dict[key]
+            elif key in items.spring_weapons_34_unique.keys():
+                drops["Фиолетовые пухи 34лвл"] += sorted_dict[key]
             else: 
-                drops["other"] += sorted_dict[key]
+                drops["Баги"] += sorted_dict[key]
         # print(drops)
 
         sorted_drops = dict(sorted(drops.items(), key=lambda item: item[1], reverse=True))
@@ -85,6 +89,7 @@ def printDrop(flag):
         labels = []
         for x in sorted_dict.keys():
             if x in items.spring_data:labels.append(items.spring_data[x])
+            # if x in items.merman_data:labels.append(items.merman_data[x])
             # if x in dict_str_byte_drop.keys(): labels.append(dict_str_byte_drop[x])
             else: labels.append(x)
 

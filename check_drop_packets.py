@@ -34,6 +34,7 @@ def write_file(packet):
     test_parse = parse_packet(packet)
     str_test = "".join(test_parse[2:len(test_parse)])
     # print(str_test)
+    # if str_test in spring_data.keys():
     if str_test in spring_data.keys():
         if str_test in drops_count.keys():
             drops_count[str_test] += 1
