@@ -39,6 +39,7 @@ def printDrop(flag):
             "Синие пухи 34лвл": 0,
             "Фиолетовые пухи 32лвл": 0,
             "Фиолетовые пухи 34лвл": 0,
+            "Книги": 0,
             "Баги": 0,
         }
 
@@ -67,6 +68,8 @@ def printDrop(flag):
                 drops["Фиолетовые пухи 32лвл"] += sorted_dict[key]
             elif key in items.spring_weapons_34_unique.keys():
                 drops["Фиолетовые пухи 34лвл"] += sorted_dict[key]
+            elif key in items.books.keys():
+                drops["Книги"] += sorted_dict[key]
             else: 
                 drops["Баги"] += sorted_dict[key]
         # print(drops)
@@ -85,7 +88,7 @@ def printDrop(flag):
             dict_str_byte_drop[str_key] = items.drops[key]
 
 
-        values = [x/sm * 100 for x in sorted_dict.values()]
+        values = [int(x) for x in sorted_dict.values()]
         labels = []
         for x in sorted_dict.keys():
             if x in items.spring_data:labels.append(items.spring_data[x])
@@ -112,10 +115,14 @@ def printDrop(flag):
             fontsize=8  # Размер шрифта
         )
 
-    plt.yticks(range(0,80 if cat_flag else 30))
-    plt.title(f'Распределение значений, кол-во записей: {sm}', fontsize=14)  # Заголовок
+    # plt.yticks(range(0,80 if cat_flag else 30))
     plt.xlabel("Дроп", fontsize=12)  # Подпись оси X
-    plt.ylabel("Вероятность дропа, %", fontsize=12)  # Подпись оси Y
+    if cat_flag:
+        plt.title(f'Распределение вероятностей, кол-во записей: {sm}', fontsize=14)  # Заголовок
+        plt.ylabel("Вероятность дропа, %", fontsize=12)  # Подпись оси Y
+    else:
+        plt.title(f'Распределение значений, кол-во записей: {sm}', fontsize=14)  # Заголовок
+        plt.ylabel("Количество дропа", fontsize=12)  # Подпись оси Y
     plt.xticks(rotation=45, ha="right")  # Поворот меток оси X
     plt.grid(axis='y', linestyle='--', alpha=0.7)  # Сетка только для оси Y
 
